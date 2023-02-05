@@ -1,0 +1,16 @@
+//01-11-2021
+//Rules
+
+print("Do you want to see the rules?")
+rule = input("\nType 'r' to open rules\nor press enter to continue")
+
+If rule == "r" Then
+    print("\nYou and the second player have to roll two dices 5 times.\nIf the total of the 2 dices is an even number,\nthen 10 points will be added to your total.\nAlthough if your total is an odd number, 5 points will be subtracted.\nAlso, if a double is rolled\nthen another die will be rolled and added to the score. \nWhoever has the largest score at the end will win. \nAlthough if the two players have the same score, a duel will occur. \nTwo dices will be rolled and who ever has the most \nwin the entire game.")
+    
+    press = input("\nPress 'enter' to continue")
+    If press == "" Then
+        print("Time to start the game")
+
+Else
+    print("Time to start the game")
+Endif

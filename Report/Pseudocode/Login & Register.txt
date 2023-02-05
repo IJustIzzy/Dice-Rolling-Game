@@ -1,0 +1,33 @@
+//31-10-2021
+//Login & Register
+
+selection = input("Do you want to Login or Register")
+selection.lower
+
+allow = False
+do
+    if selection == "login" then
+        username = input("What is your username?")
+        password = input("What is your password?")
+        file = open ("Register.txt")
+        for i in file
+            a,b = i.split(",")
+            b = b.strip
+            if a == username and b == password then
+                file.(close)
+                allow = True
+            else
+                file.(close)
+                allow = False
+            endif
+        next i
+    elseif selection == "register" then
+        username = input("What do you want your username to be?")
+        password = input("What do you want your password to be?")
+        file = open("Register.txt")
+        file.writeline("\n"username + "," + password"\n")
+        file.close()
+        allow = True
+    endif
+until allow = True
+print("\nWelcome back",username"\n")

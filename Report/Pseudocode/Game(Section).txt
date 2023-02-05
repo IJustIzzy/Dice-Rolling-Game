@@ -1,0 +1,20 @@
+          do
+            dueldieroll = input("Player1 press enter to roll the Duel die")
+            if dueldieroll == "" then
+                dueldie1 = random.randint(1,6)
+                print("You have rolled a",dueldie1)
+            endif
+            dueldie2 = random.randint(1,6)
+            print("The computer has rolled a",dueldie2)
+            if dueldie1 > dueldie2 then
+                print("Player1 has won")
+                duelwon = True
+            elseif dueldie1 < dueldie2 then
+                print("Computer has won")
+                duelwon = True
+            else
+                print("You both rolled the same amount")
+                duelwon = False
+            endif
+        until duelwon = True
+endif   

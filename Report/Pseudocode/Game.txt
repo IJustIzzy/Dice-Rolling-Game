@@ -1,0 +1,231 @@
+//20:18 02/11/2021
+//Game
+import random
+
+selection = input("Do you want to play PvP or PvC: ")
+selection = selection.lower
+allow = False
+
+//login and register for player2
+do
+    if selection == "pvp" then
+        player2 = input("Player2 do you want to login or register? ")
+        player2 = player.lower
+        if player2 == "login" then
+            username2 = input("Player2, what is your username? ")
+            password2 = input("Player2, what is your password? ")
+            if username2 == username and password2 == password then //username is from player1
+                print("You cant use the same account!")
+            else
+                file = open("Register.txt")
+                for i in file
+                    a,b = i.split(",")
+                    b = b.strip
+                    if a == username2 and b == password2 then
+                        file.close
+                        allow = True
+                    else
+                        print("Username and Password cannot be found")
+                        file.close
+                        allow = False
+                    endif
+                next i
+            endif
+        elseif player2 == "register" then
+            username2 = input("What do you want your username to be? ")
+            password2 = input("What do you want your password to be? ")
+            file = open("Register.txt")
+            for i in file
+                a,b = i.split(",")
+                b = b.strip
+                if a == username2 and b == password2 then
+                        file.close
+                        print("Your login details have been found")
+                        allow = True
+            next i
+                else
+                    file.write("\n"username2 + "," + password2"\n")
+                    allow = True
+                endif
+        else
+            print("That is not an option")
+        endif
+    elseif slection == "pvc" then
+        allow = True
+until allow = True
+
+//Actual game
+if selection == "pvp" then
+    print("Player1 start")
+    P1turns = 0
+    do
+        die1 = random.randint(1,6)
+        die2 = random.randint(1,6)
+        die3 = random.randint(1,6)
+        roll = input("Press enter to roll the dices")
+        if roll == "" then
+            print("You have rolled a",die1,"and",die2)
+            if (die1 - die2) == 0 then
+                print("You have rolled a double")
+                rollluckydie = input("Press eneter to roll the licky die")
+                if rollluckydie == "" then
+                    print("You have rolled a",die3)
+                    P1total = (P1total + (die1 + die2 + die3))
+                    P1turns = (P1turns + 1)
+                endif
+            elseif (die1 + die2) % 2 == 0 then
+                print("You have rolled an even number")
+                P1total = (P1total + (die1 + die2))
+                P1total = (P1total + 10)
+                P1turns = (P1turns + 1)
+            else
+                print("You have rolled an odd number")
+                P1total = P1total + (die1 + die2)
+                P1total = (P1total - 5)
+                P1turns = (P1total + 1)
+            endif
+        endif
+    until P1turns <= 5
+    print("Player1 has finshed with a score of",P1total)
+    print("Now it is Player2s turn")
+    P2turns = 0
+    do
+        die1 = random.randint
+        die2 = random.randint
+        die3 = random.randint
+        roll = input("Press enter to roll the dices")
+        if roll == "" then
+            print("You have rolled a",die1,"and",die2)
+            if (die1 - die2) == 0 then
+                print("You have rolled a double")
+                rollluckydie = input("Press eneter to roll the licky die")
+                if rollluckydie == "" then
+                    print("You have rolled a",die3)
+                    P2total = (P2total + (die1 + die2 + die3))
+                    P2turns = (P2turns + 1)
+                endif
+            elseif (die1 + die2) % 2 == 0 then
+                print("You have rolled an even number")
+                P2total = (P2total + (die1 + die2))
+                P2total = (P2total + 10)
+                P2turns = (P2turns + 1)
+            else
+                print("You have rolled an odd number")
+                P2total = (P2total + (die1 + die2)
+                P2total = (P2total - 5)
+                P2turns = (P2total + 1)
+            endif
+        endif
+    until P2turns <= 5
+    print("Player2 has finished with a score of",P2score)
+    if P1total < P2total then
+        print("Player2 has won")
+    elseif P2total > P1total then
+        print("Player1 has won")
+    else
+        print("Both players have the same score, a duel will now comence")
+        duelwon = False
+        do
+            dueldieroll = input("Player1 press enter to roll the Duel die")
+            if dueldieroll == "" then
+                dueldie1 = random.randint(1,6)
+                print("You have rolled a",dueldie1)
+            endif
+            dueldieroll2 = input("Player2 press enter to roll the Duel die")
+            if dueldieroll2 == "" then
+                dueldie2 = random.randint(1,6)
+                print("You have rolled a",dueldie2)
+            endif
+            if dueldie1 > dueldie2 then
+                print("Player1 has won")
+                duelwon = True
+            elseif dueldie1 < dueldie2 then
+                print("Player2 has won")
+                duelwon = True
+            else
+                print("You both rolled the same amount")
+                duelwon = False
+            endif
+        until duelwon = True
+    endif
+else
+    do
+        die1 = random.randint(1,6)
+        die2 = random.randint(1,6)
+        die3 = random.randint(1,6)
+        roll = input("Press enter to roll the dices")
+        if roll == "" then
+            print("You have rolled a",die1,"and",die2)
+            if (die1 - die2) == 0 then
+                print("You have rolled a double")
+                rollluckydie = input("Press eneter to roll the licky die")
+                if rollluckydie == "" then
+                    print("You have rolled a",die3)
+                    P1total = (P1total + (die1 + die2 + die3))
+                    P1turns = (P1turns + 1)
+                endif
+            elseif (die1 + die2) % 2 == 0 then
+                print("You have rolled an even number")
+                P1total = (P1total + (die1 + die2))
+                P1total = (P1total + 10)
+                P1turns = (P1turns + 1)
+            else
+                print("You have rolled an odd number")
+                P1total = P1total + (die1 + die2)
+                P1total = (P1total - 5)
+                P1turns = (P1total + 1)
+            endif
+        endif
+    until P1turns <= 5
+    print("Player1 has finished with a score of",P1total)
+    print("Now it is the computers turn")
+    Cturns= 0
+    do
+        die1 = random.randint(1,6)
+        die2 = random.randint(1,6)
+        die3 = random.randint(1,6)
+        print("The computer has rolled a",die1,"and",die2)
+        if (die1 - die2) == 0 then
+            print("The computer has rolled a double")
+            print("The computer has rolled a",die3)
+            Ctotal = (Ctotal + (die1 + die2 + die3))
+            Cturns = (Cturns + 1)
+        endif
+        elseif (die1 + die2) % 2 == 0 then
+            print("You have rolled an even number")
+            Ctotal = (Ctotal + (die1 + die2))
+            Ctotal = (Ctotal + 10)
+            Cturns = (Cturns + 1)
+        else
+            print("You have rolled an odd number")
+            Ctotal = Ctotal + (die1 + die2)
+            Ctotal = (Ctotal - 5)
+            Cturns = (Ctotal + 1)
+        endif
+    until Cturns <= 5
+    print("Computer has finished with a score of",Ctotal)
+    if Ctotal < P1total then
+        print("Player1 has won")
+    elseif Ctotal > P1total then
+        print("Computer has won")
+    else
+          do
+            dueldieroll = input("Player1 press enter to roll the Duel die")
+            if dueldieroll == "" then
+                dueldie1 = random.randint(1,6)
+                print("You have rolled a",dueldie1)
+            endif
+            dueldie2 = random.randint(1,6)
+            print("The computer has rolled a",dueldie2)
+            if dueldie1 > dueldie2 then
+                print("Player1 has won")
+                duelwon = True
+            elseif dueldie1 < dueldie2 then
+                print("Computer has won")
+                duelwon = True
+            else
+                print("You both rolled the same amount")
+                duelwon = False
+            endif
+        until duelwon = True
+endif   

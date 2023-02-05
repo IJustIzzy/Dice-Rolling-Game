@@ -1,0 +1,28 @@
+//20:09 31/10/2021
+//Score (Leaderboard)
+
+file = open("Leaderboard.txt")
+
+If Player1 == "wins" Then
+    file.write("\n"P1total + "," + username"\n")
+ElseIf Player2 == "wins" Then
+    file.write("\n"P2total + "," + P2username"\n")
+Else
+    file.write("\n"Ctotal + "," + "computer\n")
+
+file.close
+
+selection = input("Do you want to print the top 5 scores in the leaderboard?")
+selection = selection.lower
+
+If selection == "yes" Then
+    file = open "Leaderboard.txt"
+    r = file.readlines()
+    sort = sorted(r,reverse = True)
+    print("The top 5 scores:\n")
+    for line To 5
+        print(str(line + 1) + "\nPoints: " + str(sort[line]))
+    Next line
+Else
+    print("Goodbye")
+EndIf   
